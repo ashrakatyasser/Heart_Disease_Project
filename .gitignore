@@ -1,0 +1,34 @@
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+*.joblib
+
+# --- Virtual environment ---
+venv/
+env/
+.venv/
+
+# --- Jupyter Notebook checkpoints ---
+.ipynb_checkpoints/
+
+# --- Data files (large or raw datasets) ---
+data/*.csv
+!data/heart_disease_cleaned.csv   # keep the cleaned dataset if small
+!data/heart_disease_reduced.csv   # keep reduced dataset if needed
+
+# --- Logs ---
+*.log
+
+# --- System files ---
+.DS_Store
+Thumbs.db
+
+# --- IDE / Editor configs ---
+.vscode/
+.idea/
+
+# --- Streamlit specific ---
+.streamlit/
