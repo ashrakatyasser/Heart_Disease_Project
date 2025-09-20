@@ -3,8 +3,9 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.pkl
-*.joblib
+# Don’t ignore all pkl/joblib files globally – only ignore temp ones
+# *.pkl
+# *.joblib
 
 # --- Virtual environment ---
 venv/
@@ -18,6 +19,10 @@ env/
 data/*.csv
 !data/heart_disease_cleaned.csv   # keep the cleaned dataset if small
 !data/heart_disease_reduced.csv   # keep reduced dataset if needed
+
+# --- Models (we want to KEEP the final model for deployment) ---
+!models/final_model.pkl
+!models/*.joblib
 
 # --- Logs ---
 *.log
