@@ -9,8 +9,11 @@ import streamlit as st
 import pandas as pd
 import joblib
 import numpy as np
+import os
 
-MODEL_PATH = "models/final_model.pkl"
+# Build path relative to this file (ui/app.py → ../models/final_model.pkl)
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))  # project root
+MODEL_PATH = os.path.join(BASE_DIR, "models", "final_model.pkl")
 
 # Explicitly define the selected 12 features
 SELECTED_FEATURES = [
@@ -21,8 +24,12 @@ SELECTED_FEATURES = [
 
 @st.cache_resource
 def load_pipeline():
-    pipeline = joblib.load(MODEL_PATH)
-    return pipeline
+    try:
+        pipeline = joblib.load(MODEL_PATH)
+        return pipeline
+    except FileNotFoundError:
+        st.error(f"❌ Model file not found at: {MODEL_PATH}")
+        return None
 
 def build_input_form():
     st.sidebar.header("Input patient data")
@@ -50,7 +57,6 @@ def main():
 
     pipeline = load_pipeline()
     if pipeline is None:
-        st.error("Model not found. Make sure models/final_model.pkl exists.")
         return
 
     input_df = build_input_form()
