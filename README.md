@@ -2,6 +2,11 @@
 
 This project is a complete **Machine Learning pipeline** for predicting the likelihood of heart disease using patient health data. It includes **data preprocessing, feature engineering, dimensionality reduction, model training, evaluation, and deployment via Streamlit.**  
 
+## 🌍 Live Demo  
+You can try the deployed app here:  
+👉 [Heart Disease Prediction App](https://heartdiseaseproject-p8wamssgyvehk3ft9ztswx.streamlit.app/)  
+
+
 ## 📂 Project Structure  
 
 Heart_Disease_Project/  
